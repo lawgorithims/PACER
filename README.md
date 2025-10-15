@@ -259,6 +259,8 @@ This will scrape docket information from the first case in the specified file.
 
 ### 4. Download Documents
 
+#### Single Document Download
+
 ```bash
 # Download document #3 from docket-data.json
 npx tsx downloadDoc.ts docket-data.json 3
@@ -270,10 +272,38 @@ npx tsx downloadDoc.ts minnesota-docket-data.json 4 minnesota_doc_4.pdf
 npx tsx downloadDoc.ts
 ```
 
-This will download a specific document by number from the docket data.
+#### Batch Document Download
+
+```bash
+# Download multiple individual documents
+npx tsx downloadBatch.ts docket-data.json 3,4,5
+
+# Download document ranges
+npx tsx downloadBatch.ts minnesota-docket-data.json 3-7
+
+# Download mixed individual and ranges
+npx tsx downloadBatch.ts docket-data.json 1,3,5-8,10
+
+# Download with custom filename prefix
+npx tsx downloadBatch.ts minnesota-docket-data.json 3,4,5 minnesota_doc
+
+# Show help
+npx tsx downloadBatch.ts
+```
+
+**Batch Download Features:**
+- **Individual documents**: `3,4,5` downloads documents 3, 4, and 5
+- **Ranges**: `3-7` downloads documents 3, 4, 5, 6, and 7
+- **Mixed**: `1,3,5-8,10` downloads documents 1, 3, 5, 6, 7, 8, and 10
+- **Single authentication session** for all downloads
+- **Progress tracking** and error handling
+- **Cost efficient** - minimizes PACER charges
+
+This will download specific documents by number from the docket data, with support for both single and batch downloads.
 
 ### 5. Complete Workflow Example
 
+#### Basic Workflow (Single Documents)
 ```bash
 # Step 1: Authenticate
 npx tsx getToken.ts
@@ -288,6 +318,65 @@ npx tsx getDocket.ts minnesota-case-results.json minnesota-docket-data.json
 npx tsx downloadDoc.ts minnesota-docket-data.json 3 minnesota_doc_3.pdf
 npx tsx downloadDoc.ts minnesota-docket-data.json 4 minnesota_doc_4.pdf
 ```
+
+#### Optimized Workflow (Batch Download)
+```bash
+# Step 1: Authenticate
+npx tsx getToken.ts
+
+# Step 2: Search for a case
+npx tsx searchCase.ts 25-cv-03951 mndc minnesota-case-results.json
+
+# Step 3: Scrape docket data
+npx tsx getDocket.ts minnesota-case-results.json minnesota-docket-data.json
+
+# Step 4: Batch download multiple documents (cost efficient!)
+npx tsx downloadBatch.ts minnesota-docket-data.json 1,3,5-8,10 minnesota_doc
+```
+
+#### Cost-Effective Strategy
+```bash
+# Do this once per case
+npx tsx getToken.ts
+npx tsx searchCase.ts 25-cv-03951 mndc minnesota-case-results.json
+npx tsx getDocket.ts minnesota-case-results.json minnesota-docket-data.json
+
+# Then download any documents you need (reuse the docket data)
+npx tsx downloadBatch.ts minnesota-docket-data.json 3,4,5
+npx tsx downloadBatch.ts minnesota-docket-data.json 6-10
+```
+
+## Command Reference
+
+### Quick Command Cheat Sheet
+
+| Task | Command | Example |
+|------|---------|---------|
+| **Authenticate** | `npx tsx getToken.ts` | - |
+| **Search Case** | `npx tsx searchCase.ts <case-number> <court-id> [output-file]` | `npx tsx searchCase.ts 25-cv-03951 mndc` |
+| **Scrape Docket** | `npx tsx getDocket.ts <input-file> [output-file]` | `npx tsx getDocket.ts case-results.json` |
+| **Download Single** | `npx tsx downloadDoc.ts <docket-file> <doc-number> [filename]` | `npx tsx downloadDoc.ts docket-data.json 3` |
+| **Download Batch** | `npx tsx downloadBatch.ts <docket-file> <doc-numbers> [prefix]` | `npx tsx downloadBatch.ts docket-data.json 3,4,5` |
+
+### Court IDs
+
+| Court | ID | Example Case |
+|-------|----|--------------| 
+| New Mexico District | `nmdc` | `22-cv-00406` |
+| Minnesota District | `mndc` | `25-cv-03951` |
+| California Northern | `cand` | `24-cv-12345` |
+| New York Eastern | `nyed` | `23-cv-05678` |
+| New York Northern | `nynd` | `24-cv-01234` |
+| California Central | `cacd` | `23-cv-09876` |
+| Florida Middle | `flmd` | `24-cv-05432` |
+
+### Document Number Examples
+
+| Pattern | Downloads | Example |
+|---------|-----------|---------|
+| Individual | `3,4,5` | Documents 3, 4, 5 |
+| Range | `3-7` | Documents 3, 4, 5, 6, 7 |
+| Mixed | `1,3,5-8,10` | Documents 1, 3, 5, 6, 7, 8, 10 |
 
 ## Configuration
 
@@ -346,6 +435,34 @@ The library includes comprehensive error handling for:
 - Network timeouts
 - Browser automation errors
 - File system errors
+
+## PACER Cost Optimization
+
+### Understanding PACER Billing
+- **Case Search**: ~$0.10 per search
+- **Docket Report**: ~$0.10 per docket
+- **Document Download**: ~$0.10 per page
+
+### Cost-Saving Strategies
+
+1. **Batch Downloads**: Use `downloadBatch.ts` to download multiple documents in one session
+2. **Reuse Docket Data**: Save docket results and download documents later without re-searching
+3. **Targeted Downloads**: Only download the specific documents you need
+4. **Single Session**: Batch downloads use one authentication session for multiple documents
+
+### Example Cost Comparison
+
+```bash
+# Expensive approach (multiple sessions)
+npx tsx downloadDoc.ts docket-data.json 3  # $0.10
+npx tsx downloadDoc.ts docket-data.json 4  # $0.10  
+npx tsx downloadDoc.ts docket-data.json 5  # $0.10
+# Total: $0.30 + document page costs
+
+# Cost-effective approach (single session)
+npx tsx downloadBatch.ts docket-data.json 3,4,5  # $0.10 + document page costs
+# Total: $0.10 + document page costs
+```
 
 ## Security Notes
 
