@@ -1,39 +1,6 @@
-// Main exports for PACER Scraper TypeScript API
+export { PacerAuth } from './auth.js';
+export { PacerCaseSearch, type CaseSearchCriteria } from './case-search.js';
+export { DocketScraper, type DocketScraperOptions } from './docket-scraper.js';
+export { DocumentDownloader, type DocumentDownloaderOptions } from './document-downloader.js';
+export * from './types.js';
 
-export { PacerScraper } from './core/PacerScraper';
-export { FileManager } from './utils/FileManager';
-
-// Type exports
-export type {
-  PacerCredentials,
-  QueryConfig,
-  ScraperOptions,
-  QueryScraperOptions,
-  DocketScraperOptions,
-  SummaryScraperOptions,
-  MemberScraperOptions,
-  DocumentScraperOptions,
-  ScraperConfig,
-  ScraperResult,
-  CaseInfo,
-  DocumentInfo,
-  DocketEntry,
-  ScraperError,
-  ScraperProgress
-} from './types';
-
-// Convenience functions for common operations
-export { 
-  createPacerScraper,
-  createFileManager,
-  runCompleteWorkflow,
-  createDateRangeQuery,
-  createDocumentInputCsv,
-  createDocketUpdateCsv,
-  validateCredentials,
-  getCourtFromUcid,
-  getCaseNumberFromUcid,
-  createUcid,
-  formatCost,
-  parseCost
-} from './utils/helpers';
