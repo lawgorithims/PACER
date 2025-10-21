@@ -35,12 +35,22 @@ const token = readFileSync('token.txt', 'utf-8').trim();
 const caseSearch = new PacerCaseSearch('production');
 
 // Search by full case number in specific court(s)
-await caseSearch.searchAndSave(
-  token,
-  {
-    caseNumberFull: caseNumber,
-    courtId: [courtId]
-  },
-  outputFile
-);
+async function runSearch() {
+  try {
+    await caseSearch.searchAndSave(
+      token,
+      {
+        caseNumberFull: caseNumber,
+        courtId: [courtId]
+      },
+      outputFile
+    );
+    console.log(`Search completed. Results saved to ${outputFile}`);
+  } catch (error) {
+    console.error('Search failed:', error);
+    process.exit(1);
+  }
+}
+
+runSearch();
 

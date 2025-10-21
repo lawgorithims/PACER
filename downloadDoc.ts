@@ -65,17 +65,21 @@ const downloader = isMinnesota
   ? new DocumentDownloaderMN(downloaderOptions)
   : new DocumentDownloader(downloaderOptions);
 
-try {
-  await downloader.init();
-  
-  const downloadedFile = await downloader.downloadDocument(
-    document.documentLink,
-    outputFilename
-  );
-  
-  console.log(`Successfully downloaded: ${downloadedFile}`);
-} catch (error) {
-  console.error('Error:', error);
-} finally {
-  await downloader.close();
+async function downloadDocument() {
+  try {
+    await downloader.init();
+    
+    const downloadedFile = await downloader.downloadDocument(
+      document.documentLink,
+      outputFilename
+    );
+    
+    console.log(`Successfully downloaded: ${downloadedFile}`);
+  } catch (error) {
+    console.error('Error:', error);
+  } finally {
+    await downloader.close();
+  }
 }
+
+downloadDocument();

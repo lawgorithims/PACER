@@ -43,17 +43,21 @@ const scraper = new DocketScraper({
   headless: false  // Set to true to run without showing browser
 });
 
-try {
-  // Initialize browser
-  await scraper.init();
+async function getDocket() {
+  try {
+    // Initialize browser
+    await scraper.init();
 
-  // Get and save docket report
-  await scraper.saveDocketData(caseLink, outputFile);
+    // Get and save docket report
+    await scraper.saveDocketData(caseLink, outputFile);
 
-  console.log('Done!');
-} catch (error) {
-  console.error('Error:', error);
-} finally {
-  await scraper.close();
+    console.log('Done!');
+  } catch (error) {
+    console.error('Error:', error);
+  } finally {
+    await scraper.close();
+  }
 }
+
+getDocket();
 

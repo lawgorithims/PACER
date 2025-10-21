@@ -1,0 +1,58 @@
+{
+  "receipt": {
+    "transactionDate": "2025-10-21T16:43:40.412-0500",
+    "billablePages": 1,
+    "loginId": "btsuslavich",
+    "clientCode": "",
+    "firmId": "",
+    "search": "Court ID MNDC; Case Number 3955; Case Year 2025; Case Number 25-cv-3955; Case Type cv; Page: 1",
+    "description": "All Court Types Case Search",
+    "csoId": 7830586,
+    "reportId": "ae83052e-32fb-4ae9-a9d2-d7248fa3b7ff",
+    "searchFee": ".10"
+  },
+  "pageInfo": {
+    "number": 0,
+    "size": 54,
+    "totalPages": 1,
+    "totalElements": 1,
+    "numberOfElements": 1,
+    "first": true,
+    "last": true
+  },
+  "content": [
+    {
+      "courtId": "mndc",
+      "caseId": 228364,
+      "caseYear": 2025,
+      "caseNumber": 3955,
+      "caseOffice": "0",
+      "caseType": "cv",
+      "caseTitle": "McLemore v. 3M  Company et al",
+      "dateFiled": "2025-10-14",
+      "bankruptcyChapter": "",
+      "dispositionMethod": "",
+      "jointDispositionMethod": "",
+      "jointBankruptcyFlag": " ",
+      "natureOfSuit": "367",
+      "jurisdictionType": "Civil",
+      "mdlCourtId": "",
+      "civilStatInitiated": "",
+      "civilStatDisposition": "",
+      "civilStatTerminated": "",
+      "civilCtoNumber": "",
+      "civilTransferee": "",
+      "mdlExtension": "",
+      "mdlTransfereeDistrict": "",
+      "mdlLitType": "",
+      "mdlStatus": "",
+      "mdlTransferee": "",
+      "mdlJudgeLastName": "",
+      "caseLink": "https://ecf.mnd.uscourts.gov/cgi-bin/iqquerymenu.pl?228364",
+      "caseNumberFull": "0:2025cv03955"
+    }
+  ],
+  "masterCase": null,
+  "numberOfElements": 1,
+  "totalElements": 1
+}

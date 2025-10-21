@@ -1,0 +1,52 @@
+{
+  "caseInfo": {
+    "caseNumber": "0:25-cv-03955-JNE-DTS",
+    "caseTitle": "",
+    "judge": "",
+    "dateFiled": "",
+    "dateTerminated": ""
+  },
+  "entries": [
+    {
+      "date": "10/14/2025",
+      "documentNumber": "1",
+      "documentLink": "https://ecf.mnd.uscourts.gov/doc1/101011193803",
+      "docketText": "COMPLAINT  against All Defendants (filing fee $ 405, receipt number AMNDC-12304557) filed by Carol McLemore. Filer requests summons issued. (Attachments: # 1 Civil Cover Sheet) (Farrar, Kyle) (Entered: 10/14/2025)",
+      "links": [
+        {
+          "text": "1",
+          "url": "https://ecf.mnd.uscourts.gov/doc1/101111193804"
+        }
+      ]
+    },
+    {
+      "date": "10/15/2025",
+      "documentNumber": "2",
+      "documentLink": null,
+      "docketText": "(Text-Only) CLERK'S NOTICE OF INITIAL CASE ASSIGNMENT. Case assigned to Judge Joan N. Ericksen per Civil (MDL Direct Assign) list, referred to Magistrate Judge David T. Schultz. Please use case number 25-cv-3955 JNE/DTS.Notice: All Nongovernmental Corporate Parties must file a Rule 7.1 Corporate Disclosure Statement. (ACH) (Entered: 10/15/2025)",
+      "links": []
+    },
+    {
+      "date": "10/15/2025",
+      "documentNumber": "3",
+      "documentLink": "https://ecf.mnd.uscourts.gov/doc1/101111194135",
+      "docketText": "Summons Issued as to 3M Company, Arizant Healthcare, Inc.. (ACH) (Entered: 10/15/2025)",
+      "links": []
+    },
+    {
+      "date": "10/15/2025",
+      "documentNumber": "4",
+      "documentLink": "https://ecf.mnd.uscourts.gov/doc1/101111194141",
+      "docketText": "MDL PRETRIAL ORDER NO. 1: Establishing Procedures. Signed by Judge Joan N. Ericksen on 1/13/2016. (ACH) (Entered: 10/15/2025)",
+      "links": []
+    },
+    {
+      "date": "10/15/2025",
+      "documentNumber": "5",
+      "documentLink": null,
+      "docketText": "(Text-Only) COUNSEL PLEASE NOTE: This docket contains pleadings and orders pertaining to this case only and some, but not all, orders from the master case file  IN RE: Bair Hugger Forced Air Warming Devices Products Liability Litigation 0:15-md-02666-JNE-DTS. Counsel shall read and comply with all Pretrial Orders filed in this master case. Pleadings filed and orders issued in the master case may be accessed through the master docket sheet at 0:15-md-02666-JNE-DTS. (ACH) (Entered: 10/15/2025)",
+      "links": []
+    }
+  ],
+  "totalEntries": 5
+}
